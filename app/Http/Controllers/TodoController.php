@@ -20,7 +20,10 @@ class TodoController extends Controller
             'title' => 'required|string|max:255',
         ]);
 
-        auth()->user()->todos()->create([
+        /* auth()->user()->todos()->create([
+            'title' => $request->title,
+        ]); */
+        Todo::create([
             'title' => $request->title,
         ]);
 
@@ -32,7 +35,8 @@ class TodoController extends Controller
 
     public function update(Request $request, Todo $todo)
     {
-        $this->authorize('update', $todo); // ユーザー権限を確認
+        \Log::debug('ccc');
+        //$this->authorize('update', $todo); // ユーザー権限を確認
 
         $todo->update([
             'completed' => $request->has('completed'),
@@ -43,7 +47,7 @@ class TodoController extends Controller
 
     public function destroy(Todo $todo)
     {
-        $this->authorize('delete', $todo); // ユーザー権限を確認
+        //$this->authorize('delete', $todo); // ユーザー権限を確認
 
         $todo->delete();
 
