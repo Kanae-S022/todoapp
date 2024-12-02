@@ -13,10 +13,14 @@ return new class extends Migration
     {
         Schema::create('todos', function (Blueprint $table) {
             $table->id();
-            $table->string('title'); // タスクのタイトル
-            $table->boolean('completed')->default(false); // ステータス
-            $table->string('detail'); // タスクの詳細
-            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // ユーザーID
+            // タスクのタイトル
+            $table->string('title'); 
+            // ステータス
+            $table->boolean('completed')->default(false); 
+            // タスクの詳細
+            $table->text('detail')->nullable(); 
+            // ユーザーID
+            $table->foreignId('user_id')->constrained()->onDelete('cascade'); 
             $table->timestamps();
         });
     }

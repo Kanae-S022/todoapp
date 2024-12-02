@@ -10,14 +10,18 @@ class TodoController extends Controller
 {
     public function index()
     {
-        $todos = auth()->user()->todos; // ログイン中のユーザーのタスクを取得
-        return view('dashboard', compact('todos')); //'todos.index'
+        //$todos = auth()->user()->todos; // ログイン中のユーザーのタスクを取得
+        $todos = Todo::all();
+        //'todos.index'→'dashboard'に変更
+        return view('dashboard', compact('todos')); 
     }
 
     public function store(Request $request)
     {
         $request->validate([
             'title' => 'required|string|max:255',
+            // detailは任意で最大文字数を設定
+            'detail' => 'nullable|max:1000',
         ]);
 
         /* auth()->user()->todos()->create([
@@ -25,9 +29,14 @@ class TodoController extends Controller
         ]); */
         Todo::create([
             'title' => $request->title,
+            // detailを追加
+            'detail' => $request->input('detail'), 
+            // 現在のログインユーザーIDを保存
+            'user_id' => auth()->id(), 
         ]);
 
-        return redirect()->route('dashboard'); //return redirect()->back(); 
+        //return redirect()->back();から変更
+        return redirect()->route('dashboard');  
 
     }
 

@@ -40,7 +40,8 @@ class User extends Authenticatable
      */
     protected function casts(): array
     {
-        return [
+        return 
+        [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
@@ -48,6 +49,6 @@ class User extends Authenticatable
     
     public function todos()
     {
-    return $this->hasMany(Todo::class);
+        return $this->hasMany(Todo::class);
     }
 }

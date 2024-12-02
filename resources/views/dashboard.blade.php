@@ -37,7 +37,7 @@
                 @csrf
                 @method('PATCH')
                 <input type="checkbox" name="completed" onchange="this.form.submit()" {{ $todo->completed ? 'checked' : '' }}>
-                <span style="{{ $todo->completed ? 'text-decoration: line-through;' : '' }}">{{ $todo->title }}</span>
+                <span style="{{ $todo->completed ? 'text-decoration: line-through;' : '' }}">{{ $todo->id }}{{ $todo->title }}{{ $todo->detail }}</span>
             </form>
 
             <form action="{{ route('todos.destroy', $todo) }}" method="POST" style="display: inline;">
