@@ -45,6 +45,7 @@
                 @method('DELETE')
                 <button type="submit">削除</button>
             </form>
+            <a href="{{ route('todos.edit', $todo->id) }}" class="btn btn-sm btn-warning">編集</a>
         </li>
         @endforeach
     </ul>

@@ -11,7 +11,13 @@ class TodoController extends Controller
     public function index()
     {
         //$todos = auth()->user()->todos; // ログイン中のユーザーのタスクを取得
+
+        // すべてのタスクを取得（認証がない場合）
         $todos = Todo::all();
+
+        // ログイン中のユーザーのタスクのみ取得（認証を使用している場合）
+        //$todos = Todo::where('user_id', auth()->id())->get();
+
         //'todos.index'→'dashboard'に変更
         return view('dashboard', compact('todos')); 
     }
@@ -38,6 +44,29 @@ class TodoController extends Controller
         //return redirect()->back();から変更
         return redirect()->route('dashboard');  
 
+    }
+
+    public function edit(Todo $todo)
+    {
+        // 編集画面を表示
+        return view('todos.edit', compact('todo'));
+    }
+
+    public function updateDetails(Request $request, Todo $todo)
+    {
+        // バリデーションを追加
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'detail' => 'nullable|max:1000',
+        ]);
+
+        // データを更新
+        $todo->update([
+            'title' => $request->input('title'),
+            'detail' => $request->input('detail'),
+        ]);
+
+        return redirect()->route('dashboard')->with('success', 'Todo updated successfully.');
     }
 
     use AuthorizesRequests;
