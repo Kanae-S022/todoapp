@@ -14,6 +14,7 @@ class TodoController extends Controller
 
         // すべてのタスクを取得（認証がない場合）
         $todos = Todo::all();
+        \Log::debug($todos);
 
         // ログイン中のユーザーのタスクのみ取得（認証を使用している場合）
         //$todos = Todo::where('user_id', auth()->id())->get();
