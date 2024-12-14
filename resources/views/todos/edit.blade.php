@@ -2,22 +2,32 @@
 
 <div style="display: flex; justify-content: center; min-height: 100vh; padding: 20px;">
     <div class="container" style="width: 80%; max-width: 800px; flex-direction: column;">
-        <h2>タスクを編集する</h2>
         <form method="POST" action="{{ route('todos.updateDetails', $todo->id) }}">
             @csrf
             @method('PUT')
 
-            <div class="mb-3">
-                <label for="title" class="form-label">タイトル</label>
-                <input type="text" name="title" id="title" class="form-control" value="{{ old('title', $todo->title) }}" required>
+            <div class="mb-6">
+                <label for="title" class="block mb-2 text-sm font-medium text-gray-700">タイトル</label>
+                <input 
+                type="text" 
+                name="title" 
+                id="title" 
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none" 
+                value="{{ old('title', $todo->title) }}" 
+                required
+                >
                 @error('title')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
 
-            <div class="mb-3">
-                <label for='detail' class="form-label">詳細</label>
-                <textarea name="detail" id="detail" class="form-control">{{ old('detail', $todo->detail) }}</textarea>
+            <div class="mb-6">
+                <label for='detail' class="block mb-2 text-sm font-medium text-gray-700">詳細</label>
+                <textarea 
+                name="detail" 
+                id="detail" 
+                class="w-full h-32 px-4 py-2 border border-gray-300 rounded-lg shadow-sm resize-none focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                >{{ old('detail', $todo->detail) }}</textarea>
                 @error('detail')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
@@ -30,7 +40,7 @@
             padding: 10px 20px; 
             font-size: 16px; 
             border-radius: 50px; 
-            cursor: pointer;">更新する</button>
+            cursor: pointer;">更新</button>
         </form>
 
         <button onclick="window.location.href='{{ route('dashboard') }}'" class="btn btn-secondary" style="

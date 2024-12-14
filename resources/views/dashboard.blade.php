@@ -1,10 +1,5 @@
 
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
 
 <!--
     <div class="py-12">
@@ -20,26 +15,46 @@
 
 <div style="display: flex; justify-content: center; min-height: 100vh; padding: 20px;">
     <div class="container" style="width: 80%; max-width: 800px; flex-direction: column;">
-        <h1>タスクを追加する</h1>
-
+        <br>
         <!-- 新しいタスクを追加 -->
-        <form action="{{ route('todos.store') }}" method="POST" style="margin-bottom: 20px;">
+        <form action="{{ route('todos.store') }}" method="POST" class="mb-5">
             @csrf
-                <input type="text" name="title" placeholder="タイトルを入力" required>
-                <input type="textarea" name="detail" placeholder="詳細を入力">
-                <button type="submit" style="
-                background: linear-gradient(to right, #ff7e5f, #feb47b); 
-                color: white; 
-                border: none; 
-                padding: 10px 20px; 
-                font-size: 16px; 
-                border-radius: 50px; 
-                cursor: pointer;">追加</button>
+            <div class="mb-4">
+                <input 
+                    type="text" 
+                    name="title" 
+                    placeholder="タイトルを入力" 
+                    required
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+            </div>
+            <div class="mb-4">
+                <textarea
+                    name="detail" 
+                    placeholder="詳細を入力"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                ></textarea>
+            </div>
+            <div style="display: flex; justify-content: center;">
+                <button 
+                    type="submit" 
+                    style="
+                    background: linear-gradient(to right, #ff7e5f, #feb47b); 
+                    color: white; 
+                    border: none; 
+                    padding: 10px 20px; 
+                    font-size: 16px; 
+                    border-radius: 50px; 
+                    cursor: pointer;"
+                >
+                    追加
+                </button>
+            </div>
         </form>
 
         <hr style="width: 100%; max-width: 800px; margin: 20px 0;">
 
-        <h1>To doリスト</h1>
+        <br>
 
         <!-- タスクのリスト -->
         <table border="1" style="width: 100%; text-align: center; border-collapse: collapse;">

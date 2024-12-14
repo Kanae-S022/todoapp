@@ -12,10 +12,8 @@ Route::get('/', function () {
     return view('/dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard'); */
 
-\Log::debug('abc');
 Route::get('/dashboard', [TodoController::class, 'index'])
 ->middleware(['auth', 'verified'])->name('dashboard');
-\Log::debug('def');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

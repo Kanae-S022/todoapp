@@ -31,15 +31,18 @@
 ### アプリURL
 
 #### テストアカウント
-
+~~~
+ID：user1@example.com
+PASS：Password
+~~~
 
 ## 開発環境の構築方法
 
 ### 構築環境
-Windows 11
-XAMPP
-php 8.2
-Laravel 11
+* Windows 11
+* XAMPP
+* php 8.2
+* Laravel 11
 
 1. git clone
 ~~~
