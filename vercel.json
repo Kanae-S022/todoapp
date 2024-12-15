@@ -10,8 +10,8 @@
             "dest": "/public/build/assets/$1"
         },
         {
-            "src": "/img/(.*)",
-            "dest": "/public/img/$1"
+            "src": "/images/(.*)",
+            "dest": "/public/images/$1"
         },
         {
             "src": "/favicon.ico",
