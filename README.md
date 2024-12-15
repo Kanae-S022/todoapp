@@ -25,15 +25,14 @@
 * タスクの削除
 
 ### 今後の実装予定
-* FormRequestでのバリデーション作成
 * 期限の追加
 
 ### アプリURL
 
 #### テストアカウント
 ~~~
-ID：user1@example.com
-PASS：Password
+ID：testuser@example.com
+PASS：Password1234
 ~~~
 
 ## 開発環境の構築方法
