@@ -40,9 +40,15 @@ class User extends Authenticatable
      */
     protected function casts(): array
     {
-        return [
+        return 
+        [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+    
+    public function todos()
+    {
+        return $this->hasMany(Todo::class);
     }
 }
