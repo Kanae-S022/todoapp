@@ -68,9 +68,9 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($todos as $todo)
+                @foreach ($todos as $index => $todo)
                 <tr>
-                    <td>{{ $todo->id }}</td>
+                    <td>{{ $index + 1 }}</td>
                     <td style="{{ $todo->completed ? 'text-decoration: line-through;' : '' }}">{{ $todo->title }}</td>
                     <td>{{ $todo->detail }}</td>
                     <td>
