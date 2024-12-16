@@ -32,8 +32,8 @@ https://todoapp-9kfiwqq05-kanae-ss-projects.vercel.app/
 
 #### テストアカウント
 ~~~
-ID：testuser@example.com
-PASS：Password1234
+メールアドレス：testuser@example.com
+パスワード：Password1234
 ~~~
 
 ## 開発環境の構築方法
