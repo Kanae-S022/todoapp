@@ -28,6 +28,7 @@
 * 期限の追加
 
 ### アプリURL
+https://todoapp-9kfiwqq05-kanae-ss-projects.vercel.app/
 
 #### テストアカウント
 ~~~
